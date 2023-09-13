@@ -1,38 +1,267 @@
-.App {
-  text-align: center;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  display: flex;
+  background: #f1c7eb;
   min-height: 100vh;
+  padding: 0 10px;
+  margin-top: 5em;
+  align-items: flex-start;
+  justify-content: center;
+}
+.calendar-header{
+  background-color:#660783;
+  width: 34%;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0px auto;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+}
+
+/* Calendar Extra Prize */
+
+.calendar-extra-prize{
+  display: flex;
+  height: 24vh;
+  background-color: rgb(232, 175, 175);
+  justify-content: space-around;
+  align-items: center;
+}
+
+.extra-prize{
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 7px;
+  padding: 0.5rem 3rem;
+  position: relative;
+  pointer-events: none;
+}
+.extra-prize button{
+  border: none;
+  margin-top:10px ;
+  padding: 10px 30px;
+  pointer-events: none;
+}
+.extra-prize img{
+  width: 100px;
+  border-radius: 50%;
+  background-color: rgb(109, 102, 102);
+}
+
+
+/* End Calendar Extra Prize */
+
+
+.calendar-container {
+  margin:4rem 0;
+  background: #fff;
+  width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.calendar-container header {
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+
+header .calendar-navigation {
+  display: flex;
+}
+
+header .calendar-navigation span {
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+  user-select: none;
+  color: #aeabab;
+  font-size: 1.9rem;
+}
+
+.calendar-navigation span:last-child {
+  margin-right: -10px;
+}
+
+header .calendar-navigation span:hover {
+  background: #f2f2f2;
+}
+
+header .calendar-current-date {
+  font-weight: 500;
+  font-size: 1.45rem;
+}
+
+.calendar-body {
+  padding: 20px;
+
+}
+
+.calendar-body ul {
+  list-style: none;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 12px;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.calendar-body .calendar-dates {
+  margin-bottom: 20px;
+}
+
+.calendar-body li {
+  width: calc(100% / 6);
+  font-size: 1.07rem;
+  color: #414141;
+}
+
+.calendar-body .calendar-weekdays  {
+  display: flex;
+  justify-content: stretch;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.calendar-body .calendar-weekdays  li{
+  width: 155px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.calendar-body .calendar-dates li {
+  /* margin-top: 30px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer; */
+
+  /* width: 185px; */
+  height:200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.calendar-dates li.inactive {
+  color: #8f8a8a;
+  pointer-events: none;
+}
+
+.calendar-dates li.active {
+  background-color: #E99C75;
+  pointer-events: auto;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* .calendar-dates li::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+/* .calendar-dates li.active::before {
+  background: #6332c5;
+} */
+
+/* .calendar-dates li:not(.active):hover::before {
+  background: #e4e1e1;
+}  */
+
+
+.active-btn{
+  cursor: pointer;
+  outline:none;
+  background-color: rgb(247, 247, 247);
+  padding: 10px 20px;
+  border: none;
+  transition: 0.4s all;
+}
+.active-btn:hover{
+  scale: 1.1;
+}
+
+.inactive{
+-webkit-filter: grayscale(1);
+ pointer-events: none;
+}
+
+.card{
+  color: black;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.17);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-image img{
+ 
+  width: 120px;
+  object-fit: cover;
+  margin-top: 1px;
+  border-radius: 50%;
+  background-color: #FFFDF0;
+}
+
+.card-success{
+  background: red;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.day-number{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.clicked_card{
+  position: absolute;
+  top: -20px;
+  left: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: blueviolet;
+  color: white;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.none{
+  display: none;
+}
+
+.can_claim{
+  pointer-events: all;
+  cursor: pointer;
+  background-color: lightgreen;
 }
